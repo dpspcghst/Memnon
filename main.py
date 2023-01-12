@@ -1,6 +1,7 @@
 from random import choice
 
 throw = input("> ")
+assert isinstance(throw, str) # should be a string
 
 def main(throw):
     """
@@ -13,6 +14,7 @@ def main(throw):
     ]
 
     rps_choice = choice(rps_throws)
+    assert rps_choice in rps_throws # should be either paper, rock, or scissors
 
     if throw in rps_throws:
     
