@@ -1,64 +1,71 @@
 from random import choice
+from settings import rps_throws
 
-throw = input("> ")
-assert isinstance(throw, str) # should be a string
-
-def main(throw):
+def player_throw():
     """
     """
 
-    rps_throws = [
-        "paper",
-        "rock",
-        "scissors"
-    ]
+    throw = input("> ")
+
+    return throw
+
+def rps_throw():
+    """
+    """
 
     rps_choice = choice(rps_throws)
-    assert rps_choice in rps_throws # should be either paper, rock, or scissors
+    return rps_choice
 
-    if throw in rps_throws:
+def main():
+    """
+    """
+
+    throw1 = player_throw()
+    throw2 = rps_throw()
+
+    if throw1 in rps_throws:
     
-        if throw == "paper":
+        if throw1 == "paper":
     
-            if rps_choice == throw:
+            if throw2 == throw1:
                 print("it's a draw")
         
-            elif rps_choice == "rock":
-                rps_choice = "scissors"
-                print(f"{rps_choice} beats {throw}")
+            elif throw2 == "rock":
+                throw2 = "scissors"
+                print(f"{throw2} beats {throw1}")
         
-            elif rps_choice == "scissors":
-                print(f"{rps_choice} beats {throw}")
+            elif throw2 == "scissors":
+                print(f"{throw2} beats {throw1}")
         
             else:
                 print("error")
     
-        elif throw == "rock":
+        elif throw1 == "rock":
     
-            if rps_choice == throw:
+            if throw2 == throw1:
                 print("it's a draw")
         
-            elif rps_choice == "scissors":
-                rps_choice = "paper"
-                print(f"{rps_choice} beats {throw}")
+            elif throw2 == "scissors":
+                throw2 = "paper"
+                print(f"{throw2} beats {throw1}")
         
-            elif rps_choice == "paper":
-                print(f"{rps_choice} beats {throw}")
+            elif throw2 == "paper":
+                print(f"{throw2} beats {throw1}")
         
             else:
                 print("error")
         
-        elif throw == "scissors":
+        elif throw1 == "scissors":
     
-            if rps_choice == throw:
+            if throw2 == throw1:
                 print("it's a draw")
     
-            elif rps_choice == "paper":
-                rps_choice = "rock"
-                print(f"{rps_choice} beats {throw}")
+            elif throw2 == "paper":
+                throw2 = "rock"
+                print(f"{throw2} beats {throw1}")
     
-            elif rps_choice == "rock":
-                print(f"{rps_choice} beats {throw}")
+            elif throw2 == "rock":
+                print(f"{throw2} beats {throw1}")
     
             else:
                 print("error")
@@ -70,4 +77,4 @@ def main(throw):
         print("that's not an option")
 
 if __name__ == "__main__":
-    main(throw)
+    main()
